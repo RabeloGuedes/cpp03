@@ -106,5 +106,33 @@ int	main(void) {
 		std::cout << MAGENTA_TEXT << "=================================TEST 5===============================" << std::endl;
 		std::cout << std::endl << WHITE_TEXT;
 	}
+
+	reader = "answer";
+	while (!std::cin.eof() && !reader.empty()) {
+		std::cout << "Press Enter to continue ..." << std::endl;
+		std::getline(std::cin, reader);
+	}
+
+	{
+		std::cout << RED_TEXT << "=================================TEST 6===============================" << std::endl;
+		std::cout << center("TESTING CLAPTRAP MEMBER FUNCTIONS 1", 70) << std::endl << WHITE_TEXT;
+		{
+			ClapTrap	a(fighter);
+			
+			a.attack(enemy);
+			a.takeDamage(5);
+			a.beRepaired(5);
+			a.takeDamage(5);
+			a.attack(enemy);
+			a.beRepaired(5);
+			for (int i = 0; i < 8; i++) {
+				a.attack(enemy);
+			}
+			a.beRepaired(5);
+			a.attack(enemy);
+		}
+		std::cout << RED_TEXT << "=================================TEST 6===============================" << std::endl;
+		std::cout << std::endl << WHITE_TEXT;
+	}
 	return (0);
 }
