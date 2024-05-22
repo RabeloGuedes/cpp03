@@ -45,5 +45,22 @@ int	main(void) {
 		std::cout << GREEN_TEXT << "=================================TEST 2===============================" << std::endl;
 		std::cout << std::endl << WHITE_TEXT;
 	}
+
+	reader = "answer";
+	while (!std::cin.eof() && !reader.empty()) {
+		std::cout << "Press Enter to continue ..." << std::endl;
+		std::getline(std::cin, reader);
+	}
+
+	{
+		std::cout << YELLOW_TEXT << "=================================TEST 3===============================" << std::endl;
+		std::cout << center("TESTING CLAPTRAP STRING CONSTRUCTOR", 70) << std::endl << WHITE_TEXT;
+		{
+			ClapTrap	a(fighter);
+			(void)a;
+		}
+		std::cout << YELLOW_TEXT << "=================================TEST 3===============================" << std::endl;
+		std::cout << std::endl << WHITE_TEXT;
+	}
 	return (0);
 }
