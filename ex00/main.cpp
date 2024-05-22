@@ -62,5 +62,26 @@ int	main(void) {
 		std::cout << YELLOW_TEXT << "=================================TEST 3===============================" << std::endl;
 		std::cout << std::endl << WHITE_TEXT;
 	}
+
+	reader = "answer";
+	while (!std::cin.eof() && !reader.empty()) {
+		std::cout << "Press Enter to continue ..." << std::endl;
+		std::getline(std::cin, reader);
+	}
+
+	{
+		std::cout << BLUE_TEXT << "=================================TEST 4===============================" << std::endl;
+		std::cout << center("TESTING CLAPTRAP COPY ASSGINMENT", 70) << std::endl << WHITE_TEXT;
+		{
+			ClapTrap	a(fighter);
+			ClapTrap	b;
+			(void)a;
+
+			b = a;
+			(void)b;
+		}
+		std::cout << BLUE_TEXT << "=================================TEST 4===============================" << std::endl;
+		std::cout << std::endl << WHITE_TEXT;
+	}
 	return (0);
 }
