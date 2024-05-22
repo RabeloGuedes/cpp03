@@ -134,5 +134,26 @@ int	main(void) {
 		std::cout << RED_TEXT << "=================================TEST 6===============================" << std::endl;
 		std::cout << std::endl << WHITE_TEXT;
 	}
+
+	reader = "answer";
+	while (!std::cin.eof() && !reader.empty()) {
+		std::cout << "Press Enter to continue ..." << std::endl;
+		std::getline(std::cin, reader);
+	}
+
+	{
+		std::cout << GREEN_TEXT << "=================================TEST 7===============================" << std::endl;
+		std::cout << center("TESTING CLAPTRAP MEMBER FUNCTIONS 2", 70) << std::endl << WHITE_TEXT;
+		{
+			ClapTrap	a(fighter);
+			
+			for (int i = 0; i < 10; i++) {
+				a.beRepaired(10);
+			}
+			a.attack(enemy);
+		}
+		std::cout << GREEN_TEXT << "=================================TEST 7===============================" << std::endl;
+		std::cout << std::endl << WHITE_TEXT;
+	}
 	return (0);
 }
