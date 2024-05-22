@@ -6,23 +6,26 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 13:29:28 by arabelo-          #+#    #+#             */
-/*   Updated: 2024/05/19 11:18:30 by arabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/22 08:49:00 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ClapTrap.hpp>
 
-ClapTrap::ClapTrap(void): _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-	std::cout << "ClapTrap default constructor called" << std::endl;
+ClapTrap::ClapTrap(void): _name("noName") ,_hitPoints(10), _energyPoints(10), _attackDamage(0) {
+	std::cout << GREEN_BACKGROUND << "ClapTrap" << GREEN_TEXT << " "
+		<< _name << " default constructor called" << std::endl << WHITE_TEXT;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &clap): _name(clap._name), _hitPoints(clap._hitPoints),
 	_energyPoints(clap._energyPoints), _attackDamage(clap._attackDamage) {
-	std::cout << "ClapTrap copy constructor called" << std::endl;
+	std::cout << GREEN_BACKGROUND << "ClapTrap" << YELLOW_TEXT << " "
+		<< _name << " copy constructor called" << std::endl << WHITE_TEXT;
 }
 
 ClapTrap::ClapTrap(std::string &name): _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-	std::cout << "ClapTrap string constructor called" << std::endl;
+	std::cout << GREEN_BACKGROUND << "ClapTrap" << BLUE_TEXT << " "
+		<< _name << " string constructor called" << std::endl << WHITE_TEXT;
 }
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &clap) {
@@ -32,24 +35,26 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &clap) {
 		_energyPoints = clap._energyPoints;
 		_attackDamage = clap._attackDamage;
 	}
-	std::cout << "ClapTrap copy assignment called" << std::endl;
+	std::cout << GREEN_BACKGROUND << "ClapTrap" << MAGENTA_TEXT << " "
+		<< _name << " copy assignment called" << std::endl << WHITE_TEXT;
 	return (*this);
 }
 
 ClapTrap::~ClapTrap(void) {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << GREEN_BACKGROUND << "ClapTrap" << RED_TEXT << " "
+		<< _name << " destructor called" << std::endl << WHITE_TEXT;
 }
 
 void	ClapTrap::attack(const std::string &target) {
 	if (_energyPoints && _hitPoints) {
-		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing "
-			<< _attackDamage << " points of damage!" << std::endl;
+		std::cout << GREEN_TEXT << "ClapTrap " << _name << " attacks " << target << ", causing "
+			<< _attackDamage << " points of damage!" << std::endl << WHITE_TEXT;
 		_energyPoints--;
 	}
 	else if (!_hitPoints)
-		std::cout << "ClapTrap " << _name << " is dead" << std::endl;
+		std::cout << RED_TEXT << "ClapTrap " << _name << " is dead" << std::endl << WHITE_TEXT;
 	else
-		std::cout << "ClapTrap " << _name << " has no energy points to attack" << std::endl;
+		std::cout << YELLOW_TEXT << "ClapTrap " << _name << " has no energy points to attack" << std::endl << WHITE_TEXT;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
@@ -60,24 +65,28 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 			_hitPoints = 0;
 			_energyPoints = 0;
 		}
-		std::cout << "ClapTrap " << _name << " takes " << amount
-			<< " points of damage, causing it's hit points to be " << _hitPoints << std::endl;
+		std::cout << RED_TEXT << "ClapTrap " << _name << " takes " << amount
+			<< " points of damage, causing it's hit points to be " << _hitPoints << std::endl << WHITE_TEXT;
 	}
 	else
-		std::cout << "ClapTrap " << _name
-			<< " can not take damge, since it's hit points are at " << _hitPoints << std::endl;	
+		std::cout << YELLOW_TEXT << "ClapTrap " << _name
+			<< " can not take damge, since it's hit points are at " << _hitPoints << std::endl << WHITE_TEXT;	
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
 	if (_energyPoints && _hitPoints) {
 		_hitPoints += amount;
 		_energyPoints--;
-		std::cout << "ClapTrap " << _name << " gets repaired " << amount
+		std::cout << GREEN_TEXT << "ClapTrap " << _name << " gets repaired " << amount
 			<< " hit points, causing it's hit points to be " << _hitPoints
-			<< " and it's energy points to be " << _energyPoints << std::endl; 
+			<< " and it's energy points to be " << _energyPoints << std::endl << WHITE_TEXT; 
 	}
 	else if (!_hitPoints)
-		std::cout << "ClapTrap " << _name << " is dead" << std::endl;
+		std::cout << RED_TEXT << "ClapTrap " << _name << " is dead" << std::endl << WHITE_TEXT;
 	else
-		std::cout << "ClapTrap " << _name << " has no energy points to attack" << std::endl;
+		std::cout << YELLOW_TEXT << "ClapTrap " << _name << " has no energy points to attack" << std::endl << WHITE_TEXT;
+}
+
+std::string	center(std::string input, int width = 120) { 
+    return std::string((width - input.length()) / 2, ' ') + input;
 }
