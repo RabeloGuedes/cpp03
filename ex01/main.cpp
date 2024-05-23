@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 13:29:49 by arabelo-          #+#    #+#             */
-/*   Updated: 2024/05/22 13:54:06 by arabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/23 07:45:11 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,21 @@ int	main(void) {
 		std::cout << std::endl << WHITE_TEXT;
 	}
 
+	reader = "answer";
+	while (!std::cin.eof() && !reader.empty()) {
+		std::cout << "Press Enter to continue ..." << std::endl;
+		std::getline(std::cin, reader);
+	}
+
+	{
+		std::cout << YELLOW_TEXT << "=================================TEST 3===============================" << std::endl;
+		std::cout << center("TESTING SCAVTRAP STRING CONSTRUCTOR", 70) << std::endl << WHITE_TEXT;
+		{
+			ScavTrap	a(fighter);
+			(void)a;
+		}
+		std::cout << YELLOW_TEXT << "=================================TEST 3===============================" << std::endl;
+		std::cout << std::endl << WHITE_TEXT;
+	}
 	return (0);
 }
