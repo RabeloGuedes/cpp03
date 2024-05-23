@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 13:29:49 by arabelo-          #+#    #+#             */
-/*   Updated: 2024/05/23 08:12:25 by arabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/23 08:40:22 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ int	main(void) {
 			a.takeDamage(45);
 			a.attack(enemy);
 			a.beRepaired(5);
+			a.guardGate();
 		}
 		std::cout << MAGENTA_TEXT << "=================================TEST 5===============================" << std::endl;
 		std::cout << std::endl << WHITE_TEXT;
@@ -130,6 +131,7 @@ int	main(void) {
 			}
 			a.beRepaired(5);
 			a.attack(enemy);
+			a.guardGate();
 		}
 		std::cout << RED_TEXT << "=================================TEST 6===============================" << std::endl;
 		std::cout << std::endl << WHITE_TEXT;
@@ -151,6 +153,7 @@ int	main(void) {
 				a.beRepaired(10);
 			}
 			a.attack(enemy);
+			a.guardGate();
 		}
 		std::cout << GREEN_TEXT << "=================================TEST 7===============================" << std::endl;
 		std::cout << std::endl << WHITE_TEXT;

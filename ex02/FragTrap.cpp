@@ -6,42 +6,54 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 13:29:05 by arabelo-          #+#    #+#             */
-/*   Updated: 2024/05/20 08:43:33 by arabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/23 08:48:20 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <FragTrap.hpp>
 
 FragTrap::FragTrap(void): ClapTrap() {
-	std::cout << "FragTrap default constructor called" << std::endl;
-	ClapTrap::_hitPoints = 100;
-	ClapTrap::_energyPoints = 100;
-	ClapTrap::_attackDamage = 30;
+	std::cout << BLUE_BACKGROUND << "FragTrap" << GREEN_TEXT << " "
+		<< ClapTrap::name <<  " default constructor called" << std::endl << WHITE_TEXT;
+	ClapTrap::hitPoints = 100;
+	ClapTrap::energyPoints = 100;
+	ClapTrap::attackDamage = 30;
 }
 
 FragTrap::FragTrap(const FragTrap &frag) {
-	std::cout << "FragTrap copy constructor called" << std::endl;
+	std::cout << BLUE_BACKGROUND << "FragTrap" << YELLOW_TEXT << " "
+		<< ClapTrap::name << " copy constructor called" << std::endl << WHITE_TEXT;
 	this->operator=(frag);
 }
 
 FragTrap::FragTrap(std::string &name): ClapTrap(name) {
-	std::cout << "FragTrap string constructor called" << std::endl;
-	ClapTrap::_hitPoints = 100;
-	ClapTrap::_energyPoints = 100;
-	ClapTrap::_attackDamage = 30;
+	std::cout << BLUE_BACKGROUND << "FragTrap" << BLUE_TEXT << " "
+		<< ClapTrap::name << " string constructor called" << std::endl << WHITE_TEXT;
+	ClapTrap::hitPoints = 100;
+	ClapTrap::energyPoints = 100;
+	ClapTrap::attackDamage = 30;
 }
 
 FragTrap	&FragTrap::operator=(const FragTrap &frag) {
 	if (this != &frag)
 		ClapTrap::operator=(frag);
-	std::cout << "FragTrap copy assignment called" << std::endl;
+	std::cout << BLUE_BACKGROUND << "FragTrap" << MAGENTA_TEXT << " "
+		<< ClapTrap::name << " copy assignment called" << std::endl << WHITE_TEXT;
 	return (*this);
 }
 
 FragTrap::~FragTrap(void) {
-	std::cout << "FragTrap destructor called" << std::endl;
+	std::cout << BLUE_BACKGROUND << "FragTrap" << RED_TEXT << " "
+		<< ClapTrap::name << " destructor called" << std::endl << WHITE_TEXT;
 }
 
 void	FragTrap::highFiveGuys(void) {
-	std::cout << "FragTrap " << ClapTrap::_name << " requests a high five" << std::endl;
+	if (ClapTrap::hitPoints && ClapTrap::energyPoints) {
+		std::cout << BLUE_TEXT << "FragTrap " << ClapTrap::name
+			<< " requests a high five" << std::endl << WHITE_TEXT;
+	}
+	else if (!ClapTrap::hitPoints)
+		std::cout << RED_TEXT << "FragTrap " << ClapTrap::name << " is dead" << std::endl <<  WHITE_TEXT;
+	else
+		std::cout << RED_TEXT << "FragTrap " << ClapTrap::name << " has no energy points" << std::endl << WHITE_TEXT;
 }
