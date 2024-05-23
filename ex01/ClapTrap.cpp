@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 13:29:28 by arabelo-          #+#    #+#             */
-/*   Updated: 2024/05/22 13:36:27 by arabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/23 07:57:46 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 	else if (!hitPoints)
 		std::cout << RED_TEXT << "ClapTrap " << name << " is dead" << std::endl << WHITE_TEXT;
 	else
-		std::cout << YELLOW_TEXT << "ClapTrap " << name << " has no energy points to attack" << std::endl << WHITE_TEXT;
+		std::cout << YELLOW_TEXT << "ClapTrap " << name << " has no energy points to be repaired" << std::endl << WHITE_TEXT;
 }
 
 std::string	center(std::string input, int width = 120) { 

@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 13:29:49 by arabelo-          #+#    #+#             */
-/*   Updated: 2024/05/23 07:48:33 by arabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/23 07:59:20 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,34 @@ int	main(void) {
 			a.beRepaired(5);
 		}
 		std::cout << MAGENTA_TEXT << "=================================TEST 5===============================" << std::endl;
+		std::cout << std::endl << WHITE_TEXT;
+	}
+
+	reader = "answer";
+	while (!std::cin.eof() && !reader.empty()) {
+		std::cout << "Press Enter to continue ..." << std::endl;
+		std::getline(std::cin, reader);
+	}
+
+	{
+		std::cout << RED_TEXT << "=================================TEST 6===============================" << std::endl;
+		std::cout << center("TESTING SCAVTRAP MEMBER FUNCTIONS 1", 70) << std::endl << WHITE_TEXT;
+		{
+			ScavTrap	a(fighter);
+			
+			a.attack(enemy);
+			a.takeDamage(5);
+			a.beRepaired(5);
+			a.takeDamage(5);
+			a.attack(enemy);
+			a.beRepaired(5);
+			for (int i = 0; i < 46; i++) {
+				a.attack(enemy);
+			}
+			a.beRepaired(5);
+			a.attack(enemy);
+		}
+		std::cout << RED_TEXT << "=================================TEST 6===============================" << std::endl;
 		std::cout << std::endl << WHITE_TEXT;
 	}
 	return (0);
