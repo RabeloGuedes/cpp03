@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 13:29:54 by arabelo-          #+#    #+#             */
-/*   Updated: 2024/05/23 08:48:33 by arabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/24 13:54:52 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ScavTrap::guardGate(void) {
 			<< " is now in Gate keeper mode" << std::endl << WHITE_TEXT;
 	}
 	else if (!ClapTrap::hitPoints)
-		std::cout << RED_TEXT << "ScavTrap " << ClapTrap::name << " is dead" << WHITE_TEXT;
+		std::cout << RED_TEXT << "ScavTrap " << ClapTrap::name << " is dead" << std::endl << WHITE_TEXT;
 	else
-		std::cout << RED_TEXT << "ScavTrap " << ClapTrap::name << " has no energy points" << WHITE_TEXT;
+		std::cout << RED_TEXT << "ScavTrap " << ClapTrap::name << " has no energy points" << std::endl << WHITE_TEXT;
 }
